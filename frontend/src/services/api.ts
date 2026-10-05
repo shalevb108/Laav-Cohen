@@ -27,10 +27,16 @@ export const uploadImage = (data: string, contentType: string) =>
   api.post<{ url: string }>('/images', { data, contentType }).then(r => r.data.url);
 
 // Resolve a stored imageUrl to a full URL. Absolute (http/https) and data: URLs pass
-// through unchanged; relative API paths (/api/images/<id>) are prefixed with the API host.
+// through unchanged. Backend-served images (/api/images/<id>) are prefixed with the API
+// host; any other relative path (e.g. /images/... bundled in the frontend) stays
+// same-origin so it is served by the static site, not the API.
 const apiOrigin = (import.meta.env.VITE_API_URL || '/api').replace(/\/api\/?$/, '');
-export const resolveImageUrl = (u?: string) =>
-  !u ? '' : /^(https?:|data:)/.test(u) ? u : `${apiOrigin}${u}`;
+export const resolveImageUrl = (u?: string) => {
+  if (!u) return '';
+  if (/^(https?:|data:)/.test(u)) return u;
+  if (u.startsWith('/api/')) return `${apiOrigin}${u}`;
+  return u;
+};
 
 // Gallery
 export const getGallery = () => api.get<GalleryItem[]>('/gallery').then(r => r.data);

@@ -9,18 +9,18 @@ import styles from './Gallery.module.scss';
 // served from the dedicated gallery database (GALLERY_MONGODB_URI on the
 // backend) — upload the firm's Google Business photos there via the admin panel.
 const defaults: GalleryItem[] = [
-  { _id: '1', imageUrl: '', title: 'חזית המשרד', description: 'משרדנו ברחוב הגדוד העברי 10, אשקלון', category: 'המשרד', order: 1 },
-  { _id: '2', imageUrl: '', title: 'חדר הישיבות', description: 'מרחב פגישות אישי ודיסקרטי', category: 'המשרד', order: 2 },
-  { _id: '3', imageUrl: '', title: 'הצוות המשפטי', description: 'עורכי הדין והצוות של המשרד', category: 'הצוות', order: 3 },
-  { _id: '4', imageUrl: '', title: 'עו"ד ירון להב', description: 'שותף מייסד', category: 'הצוות', order: 4 },
-  { _id: '5', imageUrl: '', title: 'עו"ד אסף כהן', description: 'שותף מייסד', category: 'הצוות', order: 5 },
-  { _id: '6', imageUrl: '', title: 'פסק דין בתיק נזיקין', description: 'הישג משפטי עבור לקוח', category: 'פסקי דין והסכמים', order: 6 },
-  { _id: '7', imageUrl: '', title: 'הסכם פשרה', description: 'פיצוי מלא ללקוח בתאונת עבודה', category: 'פסקי דין והסכמים', order: 7 },
-  { _id: '8', imageUrl: '', title: 'ייצוג בוועדה רפואית', description: 'ליווי מול המוסד לביטוח לאומי', category: 'אירועים', order: 8 },
-  { _id: '9', imageUrl: '', title: 'השתלמות מקצועית', description: 'עדכוני פסיקה בדיני נזיקין', category: 'אירועים', order: 9 },
+  { _id: '1', imageUrl: '/images/gallery-1.jpeg', title: 'צוות להב את כהן', description: 'הצוות של חברת עורכי הדין', category: 'הצוות', order: 1 },
+  { _id: '2', imageUrl: '/images/gallery-2.jpeg', title: 'הצוות שלנו', description: 'עורכי הדין והצוות המשפטי', category: 'הצוות', order: 2 },
+  { _id: '3', imageUrl: '/images/gallery-3.jpeg', title: 'מפגש צוות', description: 'מהפעילות של המשרד', category: 'אירועים', order: 3 },
+  { _id: '4', imageUrl: '/images/gallery-4.jpeg', title: 'אירוע משרדי', description: 'גיבוש צוות המשרד', category: 'אירועים', order: 4 },
+  { _id: '5', imageUrl: '/images/gallery-5.jpeg', title: 'יום צוותי', description: 'מהפעילות של המשרד', category: 'אירועים', order: 5 },
+  { _id: '6', imageUrl: '/images/gallery-6.jpeg', title: 'הצוות המשפטי', description: 'עורכי הדין והצוות של המשרד', category: 'הצוות', order: 6 },
+  { _id: '7', imageUrl: '/images/gallery-7.jpeg', title: 'מאחורי הקלעים', description: 'מהיום-יום של המשרד', category: 'אירועים', order: 7 },
+  { _id: '8', imageUrl: '/images/gallery-8.jpeg', title: 'צוות המשרד', description: 'הצוות של חברת עורכי הדין', category: 'הצוות', order: 8 },
+  { _id: '9', imageUrl: '/images/gallery-9.jpeg', title: 'גיבוש צוות', description: 'מהפעילות של המשרד', category: 'אירועים', order: 9 },
 ];
 
-const categories = ['הכל', 'המשרד', 'הצוות', 'פסקי דין והסכמים', 'אירועים'];
+const categories = ['הכל', 'הצוות', 'אירועים'];
 
 const gradients = [
   'linear-gradient(135deg, #0F2A4A, #1C4269)',
