@@ -1,0 +1,106 @@
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Drawer } from 'antd';
+import { MenuOutlined, PhoneOutlined, BankOutlined, CloseOutlined } from '@ant-design/icons';
+import { useSiteInfo } from '../../context/SiteInfoContext';
+import styles from './Navbar.module.scss';
+
+const navItems = [
+  { label: 'דף הבית', path: '/' },
+  { label: 'תחומי התמחות', path: '/services' },
+  { label: 'גלריה', path: '/gallery' },
+  { label: 'אודות', path: '/about' },
+  { label: 'המלצות', path: '/testimonials' },
+  { label: 'שאלות נפוצות', path: '/faq' },
+  { label: 'צור קשר', path: '/contact' },
+];
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const info = useSiteInfo();
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handler);
+    return () => window.removeEventListener('scroll', handler);
+  }, []);
+
+  const goTo = (path: string) => {
+    navigate(path);
+    setDrawerOpen(false);
+  };
+
+  return (
+    <>
+      <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+        <div className={styles.inner}>
+          <div className={styles.logo} onClick={() => goTo('/')}>
+            <div className={styles.logoIcon}>
+              <BankOutlined />
+            </div>
+            <div className={styles.logoText}>
+              <span className={styles.name}>להב את כהן</span>
+              <span className={styles.sub}>חברת עורכי דין</span>
+            </div>
+          </div>
+
+          <ul className={styles.nav}>
+            {navItems.map((item) => (
+              <li key={item.path}>
+                <span
+                  className={`${styles.navLink} ${location.pathname === item.path ? styles.active : ''}`}
+                  onClick={() => goTo(item.path)}
+                >
+                  {item.label}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <div className={styles.actions}>
+            <a href={`tel:${info.phone}`} className={styles.phoneBtn}>
+              <PhoneOutlined />
+              {info.phone}
+            </a>
+            <button className={styles.menuBtn} onClick={() => setDrawerOpen(true)}>
+              <MenuOutlined />
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <Drawer
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        placement="right"
+        width={280}
+        className={styles.drawer}
+        closeIcon={<CloseOutlined />}
+        title={
+          <div style={{ fontFamily: "'Heebo', sans-serif", fontWeight: 700, color: '#0F2A4A' }}>
+            להב את כהן
+          </div>
+        }
+      >
+        <ul className={styles.drawerNav}>
+          {navItems.map((item) => (
+            <li
+              key={item.path}
+              className={styles.drawerLink}
+              onClick={() => goTo(item.path)}
+            >
+              {item.label}
+            </li>
+          ))}
+        </ul>
+        <a href={`tel:${info.phone}`} className={styles.drawerPhone}>
+          <PhoneOutlined />
+          {info.phone}
+        </a>
+      </Drawer>
+    </>
+  );
+}
