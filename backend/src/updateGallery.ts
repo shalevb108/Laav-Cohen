@@ -16,13 +16,12 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/lahav-
 const galleryItems = [
   { imageUrl: '/images/gallery-1.jpeg', title: 'צוות להב את כהן', description: 'הצוות של חברת עורכי הדין', category: 'הצוות', order: 1 },
   { imageUrl: '/images/gallery-2.jpeg', title: 'הצוות שלנו', description: 'עורכי הדין והצוות המשפטי', category: 'הצוות', order: 2 },
-  { imageUrl: '/images/gallery-3.jpeg', title: 'מפגש צוות', description: 'מהפעילות של המשרד', category: 'אירועים', order: 3 },
-  { imageUrl: '/images/gallery-4.jpeg', title: 'אירוע משרדי', description: 'גיבוש צוות המשרד', category: 'אירועים', order: 4 },
-  { imageUrl: '/images/gallery-5.jpeg', title: 'יום צוותי', description: 'מהפעילות של המשרד', category: 'אירועים', order: 5 },
+  { imageUrl: '/images/gallery-4.jpeg', title: 'הצוות המשפטי', description: 'עורכי הדין והצוות של המשרד', category: 'הצוות', order: 4 },
+  { imageUrl: '/images/gallery-5.jpeg', title: 'הצוות המשפטי', description: 'עורכי הדין והצוות של המשרד', category: 'הצוות', order: 5 },
   { imageUrl: '/images/gallery-6.jpeg', title: 'הצוות המשפטי', description: 'עורכי הדין והצוות של המשרד', category: 'הצוות', order: 6 },
-  { imageUrl: '/images/gallery-7.jpeg', title: 'מאחורי הקלעים', description: 'מהיום-יום של המשרד', category: 'אירועים', order: 7 },
-  { imageUrl: '/images/gallery-8.jpeg', title: 'צוות המשרד', description: 'הצוות של חברת עורכי הדין', category: 'הצוות', order: 8 },
-  { imageUrl: '/images/gallery-9.jpeg', title: 'גיבוש צוות', description: 'מהפעילות של המשרד', category: 'אירועים', order: 9 },
+  { imageUrl: '/images/gallery-7.jpeg', title: 'הצוות המשפטי', description: 'עורכי הדין והצוות של המשרד', category: 'הצוות', order: 7 },
+  { imageUrl: '/images/gallery-8.jpeg', title: 'חדרי הישיבות', description: 'חדרי פגישות עם הלקוחות', category: 'המשרד', order: 8 },
+  { imageUrl: '/images/gallery-9.jpeg', title: 'חדר המתנה', description: 'חדר המתנה ללקוחות', category: 'המשרד', order: 9 },
 ];
 
 async function run() {
