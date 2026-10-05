@@ -29,6 +29,12 @@ services:
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
+    # SPA fallback: serve index.html for client-side routes (/about, /contact, …)
+    # so deep links and refreshes don't 404. Render does not read public/_redirects.
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
     envVars:
       - key: VITE_API_URL
         sync: false
