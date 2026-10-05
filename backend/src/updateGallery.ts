@@ -14,7 +14,7 @@ dotenv.config();
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/lahav-cohen-law';
 
 const galleryItems = [
-  { imageUrl: '/images/gallery-1.jpeg', title: 'השותפים וצוות המשרד', description: 'עו"ד ירון להב ועו"ד אסף כהן עם צוות הקבלה', category: 'הצוות', order: 1 },
+  { imageUrl: '/images/gallery-1.jpeg', title: 'השותפים וצוות המשרד', description: 'עו"ד ירון להב ועו"ד אסף כהן  ', category: 'הצוות', order: 1 },
   { imageUrl: '/images/gallery-2.jpeg', title: 'עו"ד ירון להב ועו"ד אסף כהן', description: 'שותפי המשרד המייסדים', category: 'הצוות', order: 2 },
   { imageUrl: '/images/gallery-3.jpeg', title: 'יום גיבוש צוותי', description: 'טיול צוות המשרד בטבע', category: 'אירועים', order: 3 },
   { imageUrl: '/images/gallery-4.jpeg', title: 'צוות המשרד', description: 'עורכי הדין והצוות המשפטי במשרד', category: 'הצוות', order: 4 },
