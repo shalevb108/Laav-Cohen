@@ -2,6 +2,7 @@ services:
   - type: web
     name: lahav-cohen-law-api
     env: node
+    plan: free
     region: frankfurt
     rootDir: backend
     buildCommand: npm install && npm run build
